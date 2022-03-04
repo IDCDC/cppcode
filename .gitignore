@@ -1,0 +1,13 @@
+# Cpp:
+*.exe
+
+# VScode:
+build
+.vscode
+
+# Python
+__pycache__
+*.pyc
+
+# Linux cpp on what I set the sa of cpp
+*.out
