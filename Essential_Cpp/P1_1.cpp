@@ -6,7 +6,7 @@ int main()
 {
 
     string user_name_first, user_name_last;
-    cout << "Please enter your first name: ";
+    std::cout << "Please enter your first name: ";
     cin >> user_name_first;
     cout << "Please enter your last name: ";
     cin >> user_name_last;
@@ -15,6 +15,6 @@ int main()
          << user_name_first
          << user_name_last
          << " ... and goodbye!\n";
-
+    
     return 0;
 }
