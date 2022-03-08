@@ -10,45 +10,31 @@
 // }
 
 
-// #include "stdio.h"
- 
-// int main()
-// {
-// 	char* str1 = "hello world\n";
-// 	str1 = "aa";
-// 	str1[1] = "a";	//报错
- 
-// 	printf("%s",str1);
- 
-// }
-
-
-// #include<iostream>
-// using namespace std;
- 
-// int main()
-// {
-// 	char* pstr = "hello world";
-// 	pstr = "aa";
-// 	pstr[1] = "a";	//报错 
-// 	cout<<pstr<<endl;
-// }
-
 
 #include<iostream>
 #include<string>
- 
+#include<vector>
+
 using namespace std;
  
 int main()
 {
-	string str1;
-	str1= "hello world";
-	str1="aa";
-	// str1[1]="a";
-	cout<< ( str1 )<<endl;
-   cout << ( 5 % 2 ? ' ' : '\n');
-   bool usr_more;
-   if (!usr_more)
-      cout << usr_more << "4" << endl;
-}
+	
+	int seq_size = 10;
+	int elem_vals[seq_size] = {
+		1, 2, 3, 4, 5 , 6, 7, 8, 9, 10
+	};
+
+	for (int i=0; i<seq_size; i++)
+	{
+		cout << elem_vals[i] << " " << endl;
+		// elem_vals.size() << endl;
+	}
+	
+	vector<int> elem_seq(elem_vals, elem_vals+seq_size);
+	for (int i=0; i<seq_size; i++)
+	{
+		cout << elem_seq[i] << " " <<
+		elem_seq.size() << endl;
+	}
+} 

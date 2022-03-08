@@ -1,2 +1,5 @@
-
-   //    cout << "4" << endl;
+=false;
+	while (a==true)
+	{
+		cout << "a" << endl;
+	}
