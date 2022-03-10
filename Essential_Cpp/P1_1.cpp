@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int main()
+int my_main()
 {
 
     string user_name_first, user_name_last;
@@ -17,4 +17,9 @@ int main()
          << " ... and goodbye!\n";
     
     return 0;
+}
+
+int main()
+{
+    my_main();
 }
