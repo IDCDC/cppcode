@@ -1,16 +1,14 @@
-;
-    switch (number)
-    {
-    case 1:
-        main_vec();
-        break;
-    case 2:
-        main_array();
-        break;
-    case 3:
-        main_array_my();
-        break;
-    default:
-        cout << "Please input the right number!" << endl;
-        break;
-    }
+)
+// {
+//     vector<string> text;
+//     string word;
+//     while (cin >> word)
+//     {
+//         text.push_back(word);
+//     }
+//     for (int i=0; i<text.size(); i++)
+//     {
+//         cout << text[i];
+//     }
+//     cout << "." << endl;
+// }

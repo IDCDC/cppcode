@@ -11,11 +11,12 @@
 
 int main()
 {
-   int a = 4;
+   double a = 4;
    int b = 3;
    double c;
    c = b/a;
    std::cout << c << std::endl;
    double e=c+0.1;
    std::cout << e << std::endl;
+   return 1;
 }
