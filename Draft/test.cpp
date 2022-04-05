@@ -1,6 +1,10 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+
+using namespace std;
+
 // int main(){
 //    char name[100];
 //    printf("What is your name?\n");
@@ -9,14 +13,25 @@
 //    printf("Hello,%s,nice to meet you!\n",name);
 // }
 
+// int main()
+// {
+//    // double a = 4;
+//    // int b = 3;
+//    // double c;
+//    // c = b/a;
+//    // std::cout << c << std::endl;
+//    // double e=c+0.1;
+//    // std::cout << e << std::endl;
+//    // return 1;
+// }
+
+bool count()
+{
+   int a=0;
+   return false;
+}
+
 int main()
 {
-   double a = 4;
-   int b = 3;
-   double c;
-   c = b/a;
-   std::cout << c << std::endl;
-   double e=c+0.1;
-   std::cout << e << std::endl;
-   return 1;
+   count();
 }
