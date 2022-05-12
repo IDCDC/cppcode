@@ -25,13 +25,31 @@ using namespace std;
 //    // return 1;
 // }
 
-bool count()
-{
-   int a=0;
-   return false;
-}
+//bool count()
+//{
+//   int a=0;
+//   return false;
+//}
 
 int main()
-{
-   count();
+{	
+	/*for (int i=0; i<5; i++)
+	{
+		cout << i << endl;
+	}
+
+	for (int i=0; i<5; ++i)
+	{
+		cout << i << endl;
+	}*/
+	double a = 1e-3;
+	cout << a << endl;
+	double b = 1e4;
+	cout << b << endl;
+	int c = 8;
+	c /= 2;
+	cout << c << endl;
+	c = c*c;
+	cout << c << endl;
+//   count();
 }
