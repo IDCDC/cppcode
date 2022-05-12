@@ -12,7 +12,7 @@ using namespace std;
 
 vector<vector<double>> input_matrix();
 void show(vector<vector<double>> &V);
-void power_interation(vector<vector<double>> &A);
+void power_interation(vector<vector<double>> &Mat);
 
 int main()
 {
@@ -74,13 +74,14 @@ void show(vector<vector<double>> &V)
 	}	
 }
 
-void power_interation(vector<vector<double>> &A)
+void power_interation(vector<vector<double>> &Mat)
 {// 幂迭代函数
-	int n = (int)A.size();      // 矩阵大小
+	int n = (int)Mat.size();      // 矩阵大小
 	vector<double> x0(n, 0);    // 迭代向量，最后存储误差向量
 	vector<double> x1(n, 0);    // 迭代向量，最后存储特征向量
 	vector<double> x2(n, 0);	// 迭代向量，最后存储特征值
 	double er=1;				// 误差
+	double mu;
 	int iter = 0;				// 迭代步数
 
 	for (int i=0; i<n; i++)
@@ -101,29 +102,44 @@ void power_interation(vector<vector<double>> &A)
 			x1[i] = 0;
 			for (int j=0; j<n; j++)
 			{
-				x1[i] += A[i][j] * x0[j];
+				x1[i] += Mat[i][j] * x0[j];
 			}
 		}
-		double max = *max_element(x1.begin(), x1.end());
+		double norm=0;
 		for (int i=0; i<n; i++)
 		{
-			x1[i] /= max;  // 标准化
-			x0[i] = x2[i]; 
+			norm += x1[i] * x1[i];
 		}
-		er = 0; // 误差初始化
+		norm = pow(norm, 0.5);
 		for (int i=0; i<n; i++)
 		{
-			er += (x1[i]-x0[i]) * (x1[i]-x0[i]);
+			x1[i] /= norm;  
+		}  // 标准化
+		
+		for (int i=0; i<n; i++)
+		{
+			x0[i] = 0;
+			for (int j=0; j<n; j++)
+			{
+				x0[i] += Mat[i][j] * x1[j]; 
+			}
 		}
-		er = abs(er);
-		er = sqrt(er);
+
+		double mu0 = mu; // 存储上一步特征值
+		mu = 0.0;        // 初始化
+		for (int i=0; i<n; i++)
+		{
+			mu += x0[i] * x1[i];	
+		} // 计算特征值
 
 		iter++;
-		if (iter > 10000)
+		if (iter > 1e4)
 		{// 避免迭代次数过多
 			cout << "迭代不收敛！" << endl;
 			return ;
 		}
+
+		er = abs(mu-mu0);
 	}
 	
 	cout << "迭代步数为：" << iter << endl;
@@ -135,28 +151,21 @@ void power_interation(vector<vector<double>> &A)
 	}
 	cout << "]" << endl;
 
-	cout << "lambda: [";
-	for (int i=0; i<n; i++)
-	{
-		x2[i] = 0;
-		for (int j=0; j<n; j++)
-		{
-			x2[i] += A[i][j] * x1[j];
-		}
-		x0[i] = x2[i] / x1[i];
-		cout << x0[i] << " ";
-	}
-	cout << "]" << endl;
-
-	double lamb = *max_element(x0.begin(), x0.end());
-	cout << "特征值是：" << lamb << endl;
+	cout << "特征值是：" << mu << endl;
 	
 	cout << "误差向量 Ax-lambda*x：[";
 	for (int i=0; i<n; i++)
 	{
-		cout << lamb * x1[i] - x2[i] << " ";
+		cout << mu * x1[i] - x0[i] << " ";
 	}
 	cout << "]" << endl;
-	
-	return ;
+
+	cout << "lamb: [";
+	for (int i=0; i<n; i++)
+	{
+		cout << x0[i] / x1[i] << " ";
+	}
+	cout << "]" << endl;
+
+	return ;	
 }

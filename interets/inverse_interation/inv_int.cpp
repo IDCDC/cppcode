@@ -105,11 +105,11 @@ vector<vector<double>> inverse_matrix(vector<vector<double>> &V)
 
 void inverse_iteration(vector<vector<double>> &Mat)
 {// 反迭代算法
-	int n = (int)Mat.size();      // 矩阵大小
+	int n = (int)Mat.size();    // 矩阵大小
 	int iter = 0;				// 迭代步数
-	double sigma;
+	double sigma;				// 位移
 	double er=1;				// 误差
-	double mu;
+	double mu;					// 特征值
 	vector<double> x0(n, 0);    // 迭代向量，最后存储误差向量
 	vector<double> x1(n, 0);    // 迭代向量，最后存储特征向量
 	vector<vector<double>> A_sig(n, vector<double>(n,0));
@@ -140,7 +140,7 @@ void inverse_iteration(vector<vector<double>> &Mat)
 		{// 存储上一步结果
 			x0[i] = x1[i];
 		}
-		
+
 		for (int i=0; i<n; i++)
 		{// A_sig_inv @ x1
 			x1[i] = 0;
@@ -160,35 +160,34 @@ void inverse_iteration(vector<vector<double>> &Mat)
 		{
 			x1[i] /= norm;  
 		}  // 标准化
-	
-		er = 0; // 误差初始化
+		
 		for (int i=0; i<n; i++)
 		{
-			er += (x1[i]-x0[i]) * (x1[i]-x0[i]);
+			x0[i] = 0;
+			for (int j=0; j<n; j++)
+			{
+				x0[i] += Mat[i][j] * x1[j]; 
+			}
 		}
-		er = sqrt(er);
+
+		double mu0 = mu; // 存储上一步特征值
+		mu = 0.0;        // 初始化
+		for (int i=0; i<n; i++)
+		{
+			mu += x0[i] * x1[i];	
+		} // 计算特征值
+
 		iter++;
-		if (iter > 1e5)
+		if (iter > 1e4)
 		{// 避免迭代次数过多
 			cout << "迭代不收敛！" << endl;
 			return ;
 		}
+
+		er = abs(mu-mu0);
 	}
 	
-	for (int i=0; i<n; i++)
-	{
-		x0[i] = 0;
-		for (int j=0; j<n; j++)
-		{
-			x0[i] += Mat[i][j] * x1[j]; 
-		}
-	}
-
-	for (int i=0; i<n; i++)
-	{
-		mu += x0[i] * x1[i];	
-	} // 计算特征值
-
+	
 	cout << "迭代步数为：" << iter << endl;
 	
 	cout << "特征向量是：[";
