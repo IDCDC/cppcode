@@ -5,51 +5,40 @@
 
 using namespace std;
 
-// int main(){
-//    char name[100];
-//    printf("What is your name?\n");
-//    std::cout << "It's Cpp code\n";
-//    scanf("%s",name);
-//    printf("Hello,%s,nice to meet you!\n",name);
-// }
-
-// int main()
-// {
-//    // double a = 4;
-//    // int b = 3;
-//    // double c;
-//    // c = b/a;
-//    // std::cout << c << std::endl;
-//    // double e=c+0.1;
-//    // std::cout << e << std::endl;
-//    // return 1;
-// }
-
-//bool count()
-//{
-//   int a=0;
-//   return false;
-//}
-
-int main()
-{	
-	/*for (int i=0; i<5; i++)
+void show(vector<vector<double>> &V)
+{// 这是一个输出矩阵元素的函数
+	for (int i=0; i<(int)V.size(); i++)
 	{
-		cout << i << endl;
-	}
-
-	for (int i=0; i<5; ++i)
-	{
-		cout << i << endl;
-	}*/
-	double a = 1e-3;
-	cout << a << endl;
-	double b = 1e4;
-	cout << b << endl;
-	int c = 8;
-	c /= 2;
-	cout << c << endl;
-	c = c*c;
-	cout << c << endl;
-//   count();
+		for (int j=0; j<(int)V[0].size(); j++)
+		{
+			cout << V[i][j] << " ";
+		}
+		cout << endl;
+	}	
 }
+
+void minus_mat(vector<vector<double>> A)
+{
+	cout << "first show A: " << endl;
+	show(A);
+	A[0][0] -= 4;
+	cout << "Second show A: " << endl;
+	show(A);
+}
+int main()
+{
+	vector<vector<double>> M;
+	M = {{8, 2, 0, 0},
+		 {2, 5,-1, 0},
+		 {0, 1, 4, 0},
+		 {0, 0, 0, 6}};
+	cout << "First show M: " << endl;
+	show(M);
+	
+	minus_mat(M);
+	cout << "Second show M: " << endl;
+	show(M);
+	return 0;
+}
+
+
