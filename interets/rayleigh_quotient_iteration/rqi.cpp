@@ -125,7 +125,7 @@ void inverse_iteration(vector<vector<double>> &Mat)
 		x1[i] = ele;
 	}
 	
-	while ( er > 1e-7)
+	while ( er > 1e-8)
 	{
 		for (int i=0; i<n; i++)
 		{// 存储上一步结果
@@ -187,8 +187,9 @@ void inverse_iteration(vector<vector<double>> &Mat)
 			cout << "迭代不收敛！" << endl;
 			return ;
 		}
-
+		cout << "sigma: " << sigma << endl;
 		er = abs(mu-mu0);
+		cout << "er: " << er << endl;
 	}
 	
 	

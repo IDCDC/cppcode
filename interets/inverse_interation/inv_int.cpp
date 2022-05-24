@@ -176,7 +176,7 @@ void inverse_iteration(vector<vector<double>> &Mat)
 		{
 			mu += x0[i] * x1[i];	
 		} // 计算特征值
-
+		cout << "mu: " << mu << endl;
 		iter++;
 		if (iter > 1e4)
 		{// 避免迭代次数过多
