@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/idc/桌面/code/week10/include/algebra/Matrix.h
+iostream
+-
+
+/home/idc/桌面/code/week10/lu.cpp
+iostream
+-
+include/algebra/Matrix.h
+/home/idc/桌面/code/week10/include/algebra/Matrix.h
+

@@ -27,7 +27,7 @@ int main()
 vector<vector<double>> input_matrix()
 {// 这个函数是用来生成矩阵
 	int n;
-	
+	// system("chcp 65001");  解决中文输出为乱码
 	char choice;
 	cout << "是否输入矩阵，y 代表用户输入矩阵，n 代表使用默认矩阵!" <<endl;
 	cin >> choice;

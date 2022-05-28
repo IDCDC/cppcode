@@ -1,0 +1,3 @@
+/home/idc/桌面/cppcode/xw.week12/build/CMakeFiles/rebuild_cache.dir
+/home/idc/桌面/cppcode/xw.week12/build/CMakeFiles/edit_cache.dir
+/home/idc/桌面/cppcode/xw.week12/build/CMakeFiles/lu.dir

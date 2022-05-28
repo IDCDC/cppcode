@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Algebra_kernel.h
+Matrix.h
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Matrix.h
+Vector.h
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Vector.h
+linalg.h
+/home/idc/桌面/cppcode/xw.week12/include/algebra/linalg.h
+
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Matrix.h
+iostream
+-
+cmath
+-
+initializer_list
+-
+
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Vector.h
+iostream
+-
+cmath
+-
+initializer_list
+-
+
+/home/idc/桌面/cppcode/xw.week12/include/algebra/linalg.h
+iostream
+-
+initializer_list
+-
+math.h
+-
+
+/home/idc/桌面/cppcode/xw.week12/lu.cpp
+iostream
+-
+include/algebra/Algebra_kernel.h
+/home/idc/桌面/cppcode/xw.week12/include/algebra/Algebra_kernel.h
+
