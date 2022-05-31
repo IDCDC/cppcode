@@ -1,5 +1,5 @@
 /*
- * 幂迭代算法
+ * 反迭代算法
 */
 #include <iostream>
 #include <vector>
