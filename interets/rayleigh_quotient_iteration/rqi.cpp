@@ -1,5 +1,5 @@
 /*
- * 幂迭代算法
+ * rayleigh 商加速算法
 */
 #include <iostream>
 #include <vector>
